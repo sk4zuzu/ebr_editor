@@ -1,2 +1,4 @@
+build/
 *.o
+*.512
 ebr_editor

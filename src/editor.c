@@ -78,10 +78,10 @@ int parse_integer(char *text, uint64_t *integer) {
     local_assert(text == NULL, return FAIL,
      P("%s", "unable to parse integer value"));
 
-    for (k = 0; text[k] != 0 && ((text[k] >= '0' && text[k] <= '9')  ||
-                                 (text[k] >= 'a' && text[k] <= 'f')  ||
-                                 (text[k] >= 'A' && text[k] <= 'F')) ||
-                                  text[k] == 'x'; k++); // (FIXME)
+    for (k = 0; text[k] != 0 && ((text[k] >= '0' && text[k] <= '9') ||
+                                 (text[k] >= 'a' && text[k] <= 'f') ||
+                                 (text[k] >= 'A' && text[k] <= 'F') ||
+                                 (text[k] == 'x')); k++); // (FIXME)
     local_assert(text[k] != 0, return FAIL,
      P("%s", "unable to parse integer value"));
 
@@ -255,13 +255,13 @@ reparse:
 
 static
 int edit_mbr_loop(mbr_t *mbr) {
-    edit_mbr_loop_template(mbr, print_mbr_numbered);
+    return edit_mbr_loop_template(mbr, print_mbr_numbered);
 }
 
 
 static
 int edit_ebr_loop(ebr_t *ebr) {
-    edit_mbr_loop_template((mbr_t*)ebr,
+    return edit_mbr_loop_template((mbr_t*)ebr,
                            (void (*)(mbr_t*,int))print_ebr_numbered);
 }
 

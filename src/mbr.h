@@ -53,12 +53,12 @@
     (p_chs)->cylinder_extra=0x0003&((uint16_t)(value)>>8)
 
 
-typedef struct {
+typedef struct __attribute__((packed)) {
     uint8_t bytes[SECTOR];
 } sector_t;
 
 
-typedef struct {
+typedef struct __attribute__((packed)) {
     uint8_t cylinder;
     uint8_t sector:6,
             cylinder_extra:2;
@@ -66,7 +66,7 @@ typedef struct {
 } chs_t; // cylinder head sector
 
 
-typedef struct {
+typedef struct __attribute__((packed)) {
      uint8_t boot_indicator;
        chs_t starting_chs_values;
      uint8_t partition_type_descriptor;
@@ -76,12 +76,12 @@ typedef struct {
 } pte_t; // partition table entry
 
 
-typedef struct {
+typedef struct __attribute__((packed)) {
     pte_t entries[4];
 } mpt_t; // master partition table
 
 
-typedef struct {
+typedef struct __attribute__((packed)) {
      uint8_t code_area[446];
        mpt_t mpt;
     uint16_t signature;

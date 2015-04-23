@@ -19,6 +19,8 @@
 
 #define _LARGEFILE64_SOURCE
 
+#include <sys/stat.h>
+#include <unistd.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdio.h>

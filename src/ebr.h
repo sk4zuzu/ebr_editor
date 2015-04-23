@@ -25,14 +25,14 @@
     ((p_ebr)->signature==0xAA55)
 
 
-typedef struct {
+typedef struct __attribute__((packed)) {
       pte_t this_entry;
       pte_t next_entry; 
     uint8_t unused_area[32];
 } ept_t; // extended partition table
 
 
-typedef struct {
+typedef struct __attribute__((packed)) {
      uint8_t unused_area[446];
        ept_t ept;
     uint16_t signature;

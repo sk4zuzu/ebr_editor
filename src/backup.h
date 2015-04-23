@@ -21,10 +21,10 @@
 #define __BACKUP__H
 
 
-int save_sector        (char *file_name, sector_t *sector);
-int load_sector        (char *file_name, sector_t *sector);
-int backup_all_records (char *device_name);
-
+int save_sector         (char *file_name, sector_t *sector);
+int load_sector         (char *file_name, sector_t *sector);
+int backup_all_records  (char *device_name);
+int restore_all_records (char *device_name);
 
 #endif
 
